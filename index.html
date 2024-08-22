@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -93,7 +93,7 @@
         preloader();
     </script>
 </body>
-</html>
+</html> -->
 
 
 <!-- GPT Code  -->
@@ -197,3 +197,132 @@
     </script>
 </body>
 </html> -->
+
+<!-- GPT Code this loader  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas First Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Loader styles */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Hide the loader by default */
+        #loader.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div id="loader">Loading...</div>
+
+    <div class="w-full bg-zinc-900">
+        <div class="parent relative top-0 left-0 w-full h-[700vh]">
+            <div class="w-full sticky top-0 left-0 h-screen">
+                <canvas class="w-full h-screen" id="frames"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+
+    <script>
+        const canvas = document.querySelector("#frames");
+        const context = canvas.getContext("2d");
+        const cimg = {
+            currentIndex: 0,
+            maxIndex: 382
+        };
+        let imageloaded = 0;
+        const images = [];
+        const loader = document.querySelector("#loader");
+
+        function preloader() {
+            for (let i = 1; i <= cimg.maxIndex; i++) {
+                const imageUrl = `./cimg/frame_${i.toString().padStart(4, "0")}.jpeg`;
+                const img = new Image();
+                img.src = imageUrl;
+                img.onload = () => {
+                    imageloaded++;
+                    if (imageloaded === cimg.maxIndex) {
+                        loadImage(cimg.currentIndex);
+                        startAnimation();
+                        hideLoader();
+                    }
+                };
+                images.push(img);
+            }
+        }
+
+        function hideLoader() {
+            loader.classList.add("hidden");
+        }
+
+        function loadImage(index) {
+            if (index >= 0 && index <= cimg.maxIndex) {
+                const img = images[index];
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const scaleX = canvas.width / img.width;
+                const scaleY = canvas.height / img.height;
+                const scale = Math.max(scaleX, scaleY);
+
+                const newWidth = img.width * scale;
+                const newHeight = img.height * scale;
+
+                const offsetX = (canvas.width - newWidth) / 2;
+                const offsetY = (canvas.height - newHeight) / 2;
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.imageSmoothingEnabled = true;
+                context.imageSmoothingQuality = "high";
+                context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+                cimg.currentIndex = index;
+            }
+        }
+
+        function startAnimation() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            var tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".parent",
+                    start: "top top",
+                    scrub: 2,
+                }
+            });
+
+            tl.to(cimg, {
+                currentIndex: cimg.maxIndex,
+                onUpdate: function () {
+                    loadImage(Math.floor(cimg.currentIndex));
+                }
+            });
+        }
+
+        preloader();
+    </script>
+</body>
+</html>
