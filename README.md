@@ -1,19 +1,38 @@
-﻿# frame_Animation
-# 💫 About Me:
-About<br><br>This project demonstrates a frame-by-frame animation using GSAP (GreenSock Animation Platform). The animation showcases a sequence of images displayed in rapid succession to create the illusion of motion, highlighting GSAP's capabilities in managing complex animations efficiently.<br><br>Features:<br>Smooth Transitions: Utilizes GSAP's robust tweening functions to ensure seamless transitions between frames.<br>Efficient Performance: Optimized for performance, ensuring the animation runs smoothly across different devices and browsers.<br>Scalability: The framework allows for easy adjustments, enabling the addition or removal of frames without significant code changes.<br>Usage:<br><br>To view the animation:<br>Clone or download the repository.<br>Open index.html in your preferred web browser.<br>This demo serves as a foundational example for developers looking to implement frame-based animations using GSAP in their web projects.
+# Frame Animation using GSAP
 
+A small experimental project demonstrating frame-based animation using the GSAP (GreenSock Animation Platform) library.
 
-## 🌐 Socials:
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/shriyash_khot_) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/shriyash khot) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:shriyashkhot04@gmil.com) 
+This project was created to explore how GSAP can be used to animate frames and create smooth visual effects in a web interface.
 
-# 💻 Tech Stack:
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=shriyash04&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=shriyash04&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=shriyash04&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+## 🚀 Tech Stack
 
----
-[![](https://visitcount.itsvg.in/api?id=shriyash04&icon=0&color=0)](https://visitcount.itsvg.in)
+- HTML
+- CSS
+- JavaScript
+- GSAP (GreenSock Animation Platform)
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+## 📌 Features
+
+- Frame-based animation using GSAP
+- Smooth animation transitions
+- Lightweight and simple animation setup
+- Beginner-friendly GSAP implementation
+
+## 🧠 What I Learned
+
+- Basics of GSAP animation library
+- Creating animations using `gsap.to()` and timeline concepts
+- Controlling animation speed and transitions
+- Handling frame-based animation in web interfaces
+
+## 🖥️ Demo
+
+Live Demo:  
+(Add your deployed link here if you deploy it)
+
+## 📂 Project Setup
+
+Clone the repository:
+
+```bash
+git clone https://github.com/shriyash04/frame_Animation.git
