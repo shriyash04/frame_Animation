@@ -28,7 +28,7 @@ This project was created to explore how GSAP can be used to animate frames and c
 ## 🖥️ Demo
 
 Live Demo:  
-(Add your deployed link here if you deploy it)
+https://timely-kelpie-9be97f.netlify.app/
 
 ## 📂 Project Setup
 
@@ -36,3 +36,4 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/shriyash04/frame_Animation.git
+
